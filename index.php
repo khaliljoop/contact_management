@@ -48,10 +48,16 @@
             <input type="text" id="nom" name="nom">
             <label for="telephone">Telephone:</label>
             <input type="text" id="telephone" name="telephone">
-            <label for="id_categorie">Category:</label>
+            <label for="id_categorie">Categorie:</label>
             <select id="id_categorie" name="id_categorie">
-                <option value="1">Amis</option>
-                <option value="2">Professionnels</option>
+                <option value="">Select categorie</option>
+                <?php 
+                $conn=mysqli_connect('localhost','root','',"test");
+                $result = mysqli_query($conn,"SELECT * FROM categorie ");
+                
+                while ($categories= mysqli_fetch_array($result)) {
+                    echo '<option value="' . $categories['id_categorie'] . '">' . $categories['libelle'] . '</option>';
+                }?>
             </select>
             <input type="submit" id="submit"value="Enregistrer" name="submit"/>
         </form>

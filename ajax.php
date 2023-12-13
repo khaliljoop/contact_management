@@ -15,7 +15,12 @@
         height: 500,
         width: 400,
         modal: true,
-        
+        buttons:{
+            Fermer:function(){
+                $(this).dialog('close');
+                return null;
+            }
+        },
         close: function() {
           add_window.dialog( "close" );
           $('#contact-popup').addClass('hide');
